@@ -1,0 +1,28 @@
+#Install VMware Tools
+Start-Process -FilePath D:\Setup65.exe -ArgumentList "/S /v/qn"
+
+
+$Tenant = "aec55451-6c83-4a80-ae9f-72e78ac152c5"
+$Subscription = "a2477a87-1e0b-412b-a86b-5ee3bc7bccd7"
+$RG = "AZ_Local_RG"
+$Region = "eastus"
+
+Invoke-AzStackHciArcInitialization -TenantId $Tenant -SubscriptionID $Subscription -ResourceGroup $RG -Region $Region -Cloud "AzureCloud"
+
+#Attempt Deploy and fail Node 1
+
+Open the file C:\NugetStore\AzStackHci.EnvironmentChecker.Deploy.1.2100.2845.573\content\Roles\EnvironmentValidator\role.xml in notepad
+Change: 
+<Task RolePath="Cloud\Infrastructure\EnvironmentValidator" InterfaceType="ValidateHardware" />
+to
+<Task RolePath="Cloud\Infrastructure\EnvironmentValidator" InterfaceType="ValidateSBEHealth" />
+
+#Retry Operation on Node #2 and fail
+
+On Node#@ Open the file C:\NugetStore\AzStackHci.EnvironmentChecker.Deploy.1.2100.2845.573\content\Roles\EnvironmentValidator\role.xml in notepad
+Change: 
+<Task RolePath="Cloud\Infrastructure\EnvironmentValidator" InterfaceType="ValidateHardware" />
+to
+<Task RolePath="Cloud\Infrastructure
+
+Set-NetAdapterAdvancedProperty -Name "Storage" -RegistryKeyword "VlanId" -RegistryValue "0"
