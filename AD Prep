@@ -1,0 +1,1 @@
+New-HciAdObjectsPreCreation -AzureStackLCMUserCredential (Get-Credential) -AsHciOUName "OU=AZLocal,DC=CeriumDemo,DC=local"
