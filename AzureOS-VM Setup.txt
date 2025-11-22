@@ -1,5 +1,5 @@
 #Install VMware Tools
-Start-Process -FilePath D:\Setup65.exe -ArgumentList "/S /v/qn"
+Start-Process -FilePath D:\Setup64.exe -ArgumentList "/S /v/qn"
 
 
 $Tenant = "aec55451-6c83-4a80-ae9f-72e78ac152c5"
