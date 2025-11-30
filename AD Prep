@@ -1,4 +1,4 @@
-PS C:\work> $password = ConvertTo-SecureString '<password>' -AsPlainText -Force
-PS C:\work> $user = "ms309deployuser"
+$password = ConvertTo-SecureString '<password>' -AsPlainText -Force
+$user = "CeriumDeploy"
 New-Object System.Management.Automation.PSCredential ($user, $password)
 New-HciAdObjectsPreCreation -AzureStackLCMUserCredential (Get-Credential) -AsHciOUName "OU=AZLocal,DC=CeriumDemo,DC=local"
